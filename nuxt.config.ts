@@ -37,6 +37,9 @@ export default defineNuxtConfig({
           content:
             "Simplistart is Mason Schmidt's digital agency for websites, tools, automation, and custom product builds."
         }
+      ],
+      script: [
+        { src: "https://identity.netlify.com/v1/netlify-identity-widget.js", tagPosition: "head" }
       ]
     }
   },
