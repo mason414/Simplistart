@@ -21,8 +21,12 @@ export default defineNuxtConfig({
       }
     }
   },
+  generate: {
+    routes: ["/", ...pageRoutes, ...projectRoutes]
+  },
   experimental: {
-    appManifest: false
+    appManifest: false,
+    payloadExtraction: true
   },
   app: {
     head: {
@@ -40,9 +44,7 @@ export default defineNuxtConfig({
   nitro: {
     output: { dir: ".output" },
     prerender: {
-      crawlLinks: true,
-      routes: ["/", ...pageRoutes, ...projectRoutes],
-      failOnError: false
+      crawlLinks: true
     }
   },
   ssr: true

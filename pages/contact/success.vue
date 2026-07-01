@@ -19,7 +19,7 @@ if (import.meta.client) {
           </p>
           <div class="hero-actions">
             <NuxtLink to="/" class="button-link">Back Home</NuxtLink>
-            <NuxtLink to="/work" class="button-link button-link--ghost">See Work</NuxtLink>
+            <NuxtLink to="/projects/pellicano" class="button-link button-link--ghost">View Our Work</NuxtLink>
           </div>
         </div>
       </div>
