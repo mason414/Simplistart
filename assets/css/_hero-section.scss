@@ -1,0 +1,143 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  width: min(calc(100% - 3rem), 1500px);
+  min-height: clamp(28rem, 76vh, 44rem);
+  margin: 1.1rem auto 0;
+  padding: calc(var(--header-height) + 2.4rem) clamp(1.6rem, 4vw, 4rem) 3.4rem;
+  border: 0;
+  border-radius: 0;
+  background: linear-gradient(135deg, rgba(7, 17, 31, 0.92), rgba(10, 24, 46, 0.82));
+  color: var(--color-white);
+  box-shadow: none;
+}
+
+.hero--home {
+  min-height: clamp(34rem, 82vh, 48rem);
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  max-width: 16ch;
+}
+
+.hero--home h1 {
+  font-size: clamp(2.6rem, 4.8vw, 4.4rem);
+  max-width: 11ch;
+}
+
+.hero--compact {
+  min-height: 24rem;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  opacity: 0.84;
+}
+
+.hero-media img,
+.hero-media video {
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 17, 31, 0.18) 0%, rgba(7, 17, 31, 0.7) 100%),
+    linear-gradient(90deg, rgba(7, 17, 31, 0.74) 0%, rgba(7, 17, 31, 0.3) 54%, rgba(7, 17, 31, 0.68) 100%);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  left: clamp(1.6rem, 4vw, 4rem);
+  top: calc(var(--header-height) + 1.4rem);
+  width: 5.5rem;
+  height: 5.5rem;
+  border-top: 3px solid var(--color-mark);
+  border-left: 3px solid var(--color-mark);
+  opacity: 0.9;
+}
+
+.hero-orb {
+  display: none;
+}
+
+.hero-orb--one {
+  top: 8%;
+  right: 9%;
+  width: 9rem;
+  height: 9rem;
+  background: rgba(124, 232, 212, 0.14);
+}
+
+.hero-orb--two {
+  bottom: 13%;
+  left: 4%;
+  width: 14rem;
+  height: 14rem;
+  background: rgba(255, 107, 74, 0.12);
+}
+
+.hero-layout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: end;
+  min-height: 100%;
+}
+
+.hero-copy,
+.hero-video-cta {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-copy {
+  display: grid;
+  align-content: end;
+  max-width: 56rem;
+}
+
+.hero-copy__primary {
+  position: relative;
+  max-width: 38rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.hero-copy__primary::before {
+  content: none;
+}
+
+.hero-subhead {
+  margin: 1.25rem 0 0;
+  max-width: 38rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.6rem;
+}
+
+@media (max-width: 680px) {
+  .hero {
+    min-height: 32rem;
+    padding-top: 7rem;
+  }
+
+  .hero-copy__primary {
+    padding: 1.5rem;
+  }
+}

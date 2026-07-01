@@ -1,0 +1,18 @@
+site_title: Simplistart
+site_tagline: Your partner for the AI era
+brand_logo: /uploads/logo.png
+favicon: /uploads/favicon.png
+nav_items:
+  - label: Contact
+    href: /contact
+    variant: button
+footer_menu:
+  - label: Contact
+    href: /contact
+address_lines:
+  - Simplistart
+  - Digital solutions for modern businesses
+phone: (401) 702-3138
+email: masonschmidt@simplistart.net
+footer_statement: Simplistart partners with businesses to consult, build, and integrate AI and custom software. From chatbots to full internal tools, we turn ideas into working systems.
+copyright: Copyright ©2026 Simplistart. All rights reserved.

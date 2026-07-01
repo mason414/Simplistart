@@ -1,0 +1,60 @@
+title: Home
+slug: home
+hero:
+  media_type: image
+  image: /uploads/home-hero.jpg
+  eyebrow: Simplistart
+  headline: Your partner for the AI era.
+  subhead: Simplistart helps businesses design, build, and integrate custom software and AI systems that actually do the work. No hype, just practical solutions that move the business forward.
+  primary_action:
+    label: Start a Project
+    href: /contact
+sections:
+  - type: ai_process
+    enabled: true
+    eyebrow: Process
+    headline: From conversation to working software.
+    body: Every project follows a lightweight process that keeps things moving without unnecessary overhead.
+    steps:
+      - title: Discovery
+        body: We learn the business, the pain points, and what success looks like. No assumptions, just questions.
+      - title: Design
+        body: We map the solution — user flows, data model, interface. You see it before we build it.
+      - title: Build
+        body: We ship working software fast, using AI tooling to accelerate development without cutting quality.
+      - title: Integrate
+        body: We connect the solution into your existing tools and workflows so it fits, not floats.
+      - title: Manage
+        body: You run it yourself, or Simplistart stays on to help manage. Either way, the system keeps working.
+  - type: ai_capabilities
+    enabled: true
+    eyebrow: Capabilities
+    headline: AI and custom software services for businesses that need things to actually work.
+    body: Every engagement starts with what the business needs, not what the technology can do. Here is what we build.
+    items:
+      - title: Custom AI Chatbots
+        body: Customer-facing support bots, internal Q&A systems, and document-backed chat powered by RAG. Trained on your data, deployed where you need it.
+      - title: Workflow Automation
+        body: AI-powered automations that replace manual steps — email parsing, data entry, approvals, reporting. Less busywork, more momentum.
+      - title: Data Analysis and Insights
+        body: Dashboards and reporting layers that use AI to summarize trends, flag anomalies, and answer business questions in plain language.
+      - title: AI Content Systems
+        body: Content generation, personalization engines, and SEO tooling that produce real copy your team can edit and publish.
+      - title: LLM Integration
+        body: Connect GPT, Claude, and open models into your existing software. Custom prompts, structured outputs, and human-in-the-loop workflows.
+      - title: AI Strategy Consulting
+        body: Not sure what to build? Simplistart helps map where AI creates real leverage in your business, then builds it.
+  - type: featured_projects
+    enabled: true
+    eyebrow: Selected Work
+    headline: Real projects for real businesses.
+    body: A look at what Simplistart has shipped recently.
+    project_slugs:
+      - pellicano
+  - type: contact_cta
+    enabled: true
+    eyebrow: Ready When You Are
+    headline: Have a project or idea that needs AI or custom software?
+    body: Tell us what needs to be built. Simplistart can help shape it into something clear and shippable.
+    link_label: Contact Simplistart
+    link_href: /contact

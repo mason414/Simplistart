@@ -1,0 +1,150 @@
+:root {
+  --color-ink: #111827;
+  --color-deep: #07111f;
+  --color-panel: #0e1b31;
+  --color-primary: #2563eb;
+  --color-primary-strong: #1d4ed8;
+  --color-primary-soft: rgba(37, 99, 235, 0.12);
+  --color-sky: #93c5fd;
+  --color-gold: #c6d4f7;
+  --color-mark: #f59e0b;
+  --color-paper: #eef3fb;
+  --color-white: #ffffff;
+  --color-border: rgba(17, 24, 39, 0.1);
+  --color-shadow: rgba(15, 23, 42, 0.12);
+  --page-max: 1400px;
+  --header-height: 88px;
+  --font-heading: "Sora", "Avenir Next", "Trebuchet MS", sans-serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  background:
+    linear-gradient(180deg, #fbfdff 0%, #eef4fb 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+video {
+  display: block;
+  width: 100%;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.site-header,
+.section,
+.site-footer {
+  width: min(calc(100% - 3rem), var(--page-max));
+  margin: 0 auto;
+}
+
+.site-shell {
+  position: relative;
+}
+
+.page-shell {
+  padding-bottom: 5rem;
+}
+
+.eyebrow,
+.button-link {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0 0 0.9rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+h1,
+h2,
+h3,
+strong {
+  font-family: var(--font-heading);
+  line-height: 0.98;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3.2rem, 7vw, 6.6rem);
+  max-width: 11ch;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.22rem;
+}
+
+%button-core {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.9rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 0;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  color: var(--color-white);
+  background: var(--color-primary);
+  box-shadow: none;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.button-link {
+  @extend %button-core;
+}
+
+.button-link:hover,
+.button-link--ghost:hover {
+  transform: translateY(-1px);
+}
+
+.button-link--ghost {
+  color: var(--color-deep);
+  background: transparent;
+  border-color: rgba(17, 24, 39, 0.16);
+  box-shadow: none;
+}
+
+.button-link--ghost:hover {
+  border-color: var(--color-mark);
+  color: var(--color-mark);
+}
+
+@media (max-width: 680px) {
+  h1 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+  }
+}

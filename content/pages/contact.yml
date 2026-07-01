@@ -1,0 +1,16 @@
+title: Contact
+slug: contact
+hero:
+  media_type: image
+  image: /uploads/contact-hero.jpg
+  eyebrow: Contact
+  headline: Tell us what needs to be built next.
+  subhead: Share the idea, the problem, and where things feel stuck. Simplistart will turn that into a clearer path forward.
+sections:
+  - type: contact_form
+    enabled: true
+    eyebrow: Project Inquiry
+    headline: Start the conversation.
+    body: Use the form for AI projects, custom software, websites, internal tools, automations, or general digital help.
+    submit_label: Send Inquiry
+    success_message: Thanks for reaching out. The Simplistart team will review the details and follow up soon.

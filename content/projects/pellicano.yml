@@ -1,0 +1,17 @@
+title: Pellicano CMS Redesign
+slug: pellicano
+category: Custom Software
+external_url: https://pellicanoconstruction.com
+thumbnail: /uploads/pellicano-thumbnail.png
+hero_image: /uploads/pellicano-hero.jpg
+summary: A fully custom CMS and site redesign for a construction company, built fast with AI tooling and handed off for the client to own completely.
+description: Pellicano needed a site that reflected their construction expertise without locking them into a rigid template or bloated platform. Simplistart designed and built a custom CMS from scratch, purpose-fit for their content. With AI-assisted development, the turnaround was fast enough that the company could take over management immediately and never touch a line of code to keep publishing.
+outcome: Pellicano got a premium, lightweight CMS they can fully operate on their own. No vendor dependency, no page builder overhead — just clean content management that matches the quality of their work.
+services:
+  - Custom CMS architecture
+  - AI-assisted development
+  - UX and interface design
+  - Client handoff and documentation
+
+featured_on_home: true
+featured_order: 1

@@ -1,0 +1,27 @@
+{
+  "name": "simplistart-site",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.18.3",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "lint:styles": "stylelint \"assets/**/*.{scss,vue}\" \"components/**/*.vue\" \"pages/**/*.vue\" \"layouts/**/*.vue\"",
+    "lint:styles:fix": "stylelint \"assets/**/*.{scss,vue}\" \"components/**/*.vue\" \"pages/**/*.vue\" \"layouts/**/*.vue\" --fix"
+  },
+  "dependencies": {
+    "nuxt": "3.21.2",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "postcss-html": "^1.8.1",
+    "sass": "^1.99.0",
+    "stylelint": "^17.11.0",
+    "stylelint-config-standard-scss": "^17.0.0"
+  }
+}

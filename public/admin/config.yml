@@ -1,0 +1,339 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+publish_mode: editorial_workflow
+media_folder: "public/uploads"
+public_folder: "/uploads"
+logo:
+  src: /uploads/logo.png
+show_preview_links: true
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    label_singular: "Page"
+    folder: "content/pages"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "yml"
+    format: "yml"
+    identifier_field: "title"
+    summary: "{{title}} — {{slug}}"
+    preview_path: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Slug",
+          name: "slug",
+          widget: "string",
+          pattern: ["^[a-z0-9-]+$", "Must be lowercase letters, numbers, and hyphens only"],
+          hint: "Use 'home' for the homepage. Examples: about, work, contact"
+        }
+      - label: "Hero Section"
+        name: "hero"
+        widget: "object"
+        collapsed: false
+        fields:
+          - label: "Media Type"
+            name: "media_type"
+            widget: "select"
+            default: "image"
+            options:
+              - { label: "Image", value: "image" }
+              - { label: "Video", value: "video" }
+          - { label: "Image", name: "image", widget: "image", required: false }
+          - { label: "Video File", name: "video", widget: "file", required: false, allow_multiple: false }
+          - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Subhead", name: "subhead", widget: "text", required: false }
+          - { label: "Hide Hero Copy", name: "hide_copy", widget: "boolean", required: false, default: false }
+          - { label: "Video CTA Label", name: "video_cta_label", widget: "string", required: false }
+          - { label: "Video Embed URL", name: "video_embed_url", widget: "string", required: false, hint: "YouTube or Vimeo URL" }
+          - { label: "Video Auto Open", name: "video_auto_open", widget: "boolean", required: false, default: false }
+          - label: "Primary Action"
+            name: "primary_action"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Link", name: "href", widget: "string" }
+          - label: "Secondary Action"
+            name: "secondary_action"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Link", name: "href", widget: "string" }
+      - label: "Page Sections"
+        name: "sections"
+        widget: "list"
+        summary: "{{fields.type}}"
+        types:
+          - label: "Intro"
+            name: "intro"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+          - label: "Stats Grid"
+            name: "stats"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - label: "Stat Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Value", name: "value", widget: "string", hint: "Short bold text, e.g. 'Sites'" }
+                  - { label: "Description", name: "label", widget: "string" }
+          - label: "Services Grid"
+            name: "services"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text", required: false }
+              - label: "Service Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "body", widget: "text" }
+          - label: "AI Capabilities"
+            name: "ai_capabilities"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text", required: false }
+              - label: "Capability Items"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "body", widget: "text" }
+          - label: "AI Process"
+            name: "ai_process"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text", required: false }
+              - label: "Process Steps"
+                name: "steps"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "body", widget: "text" }
+          - label: "Featured Projects"
+            name: "featured_projects"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - {
+                  label: "Projects",
+                  name: "project_slugs",
+                  widget: "relation",
+                  collection: "projects",
+                  search_fields: ["title", "slug"],
+                  value_field: "slug",
+                  display_fields: ["title"],
+                  multiple: true
+                }
+          - label: "Callout"
+            name: "callout"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+          - label: "Profile"
+            name: "profile"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Role / Title", name: "role", widget: "string", required: false }
+              - { label: "Detail", name: "detail", widget: "text", required: false }
+              - { label: "Portrait", name: "portrait", widget: "image", required: false }
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+          - label: "Story Blocks"
+            name: "story_blocks"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - label: "Blocks"
+                name: "blocks"
+                widget: "list"
+                summary: "{{headline}}"
+                fields:
+                  - { label: "Headline", name: "headline", widget: "string" }
+                  - { label: "Body", name: "body", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - label: "Image Alignment"
+                    name: "image_alignment"
+                    widget: "select"
+                    default: "right"
+                    options:
+                      - { label: "Left", value: "left" }
+                      - { label: "Right", value: "right" }
+          - label: "Project Grid"
+            name: "project_grid"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Filter Labels", name: "filter_labels", widget: "list", hint: "First label should be 'All'. Additional labels should match project categories." }
+          - label: "Contact Info"
+            name: "contact_info"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+          - label: "Contact CTA"
+            name: "contact_cta"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Anchor ID", name: "anchor_id", widget: "string", required: false }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Link Label", name: "link_label", widget: "string" }
+              - { label: "Link URL", name: "link_href", widget: "string" }
+          - label: "Contact Form"
+            name: "contact_form"
+            widget: "object"
+            fields:
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true, required: false }
+              - { label: "Section ID", name: "section_id", widget: "string", required: false }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Submit Button Label", name: "submit_label", widget: "string", default: "Send" }
+              - { label: "Success Message", name: "success_message", widget: "text", required: false }
+
+  - name: "projects"
+    label: "Projects"
+    label_singular: "Project"
+    folder: "content/projects"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "yml"
+    format: "yml"
+    identifier_field: "title"
+    summary: "{{title}} — {{category}}"
+    preview_path: "projects/{{slug}}"
+    fields:
+      - { label: "Project Title", name: "title", widget: "string" }
+      - {
+          label: "Slug",
+          name: "slug",
+          widget: "string",
+          pattern: ["^[a-z0-9-]+$", "Must be lowercase letters, numbers, and hyphens only"]
+        }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Summary", name: "summary", widget: "text", hint: "Short intro for cards and hero" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Outcome", name: "outcome", widget: "text", required: false }
+      - label: "Services"
+        name: "services"
+        widget: "list"
+        required: false
+        summary: "{{fields}}"
+      - { label: "External URL", name: "external_url", widget: "string", required: false }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false, hint: "Shown in cards and grids" }
+      - { label: "Hero Image", name: "hero_image", widget: "image", required: false, hint: "Large image at top of project page" }
+      - label: "Gallery Images"
+        name: "gallery"
+        widget: "list"
+        required: false
+        summary: "{{fields.image}}"
+        field: { label: "Image", name: "image", widget: "image" }
+      - { label: "Featured On Homepage", name: "featured_on_home", widget: "boolean", required: false, default: false }
+      - { label: "Featured Order", name: "featured_order", widget: "number", required: false, value_type: "int", min: 1, hint: "Lower numbers appear first" }
+
+  - name: "settings"
+    label: "Settings"
+    files:
+      - name: "site"
+        label: "Site Settings"
+        file: "content/settings/site.yml"
+        fields:
+          - { label: "Site Title", name: "site_title", widget: "string" }
+          - { label: "Tagline", name: "site_tagline", widget: "string", required: false }
+          - { label: "Brand Logo", name: "brand_logo", widget: "image", required: false }
+          - { label: "Favicon", name: "favicon", widget: "image", required: false, hint: "SVG or PNG" }
+          - label: "Navigation"
+            name: "nav_items"
+            widget: "list"
+            summary: "{{fields.label}} → {{fields.href}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "href", widget: "string" }
+              - label: "Style"
+                name: "variant"
+                widget: "select"
+                required: false
+                default: "link"
+                options:
+                  - { label: "Link", value: "link" }
+                  - { label: "Button", value: "button" }
+          - label: "Footer Menu"
+            name: "footer_menu"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "href", widget: "string" }
+          - { label: "Address Lines", name: "address_lines", widget: "list" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - label: "Social Links"
+            name: "social_links"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Name", name: "label", widget: "string" }
+              - { label: "URL", name: "href", widget: "string" }
+          - { label: "Footer Statement", name: "footer_statement", widget: "text" }
+          - { label: "Copyright", name: "copyright", widget: "string", hint: "Use {{year}} placeholder or type a fixed year" }
