@@ -84,12 +84,31 @@ function normalizePhoneInput(event: Event) {
 }
 
 function handleFormSubmit(event: Event) {
-  if (submitted.value || submitting.value) {
-    event.preventDefault();
-    return;
-  }
+  event.preventDefault();
+  if (submitted.value || submitting.value) return;
+
+  const form = event.target as HTMLFormElement;
+  if (!form.checkValidity()) return;
 
   submitting.value = true;
+
+  const formData = new FormData(form);
+
+  fetch("/", {
+    method: "POST",
+    body: formData,
+    headers: { "X-Requested-With": "XMLHttpRequest" }
+  })
+    .then(() => {
+      submitted.value = true;
+      window.localStorage.setItem(storageKey.value, "true");
+    })
+    .catch(() => {
+      submitted.value = true;
+    })
+    .finally(() => {
+      submitting.value = false;
+    });
 }
 
 onMounted(async () => {
@@ -329,7 +348,6 @@ onBeforeUnmount(() => {
           v-else
           name="contact"
           method="POST"
-          action="/contact/success"
           data-netlify="true"
           netlify-honeypot="bot-field"
           class="site-form"
@@ -354,9 +372,8 @@ onBeforeUnmount(() => {
               maxlength="14"
               inputmode="tel"
               autocomplete="tel"
-              pattern="^\\(\\d{3}\\) \\d{3}-\\d{4}$"
               placeholder="(555) 555-5555"
-              required
+              pattern="^\(\d{3}\) \d{3}-\d{4}$"
               @input="normalizePhoneInput"
             />
           </label>
